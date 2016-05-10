@@ -39,8 +39,8 @@ function autoriser_auteur_modifier($faire, $type, $id, $qui, $opt) {
 
     include_spip('inc/session');
 
-    // Il faut être connecté
-	if ($qui['id_auteur'] !== 0) {
+    // Il faut être connecté (et donc avec un id_auteur)
+	if ($qui['id_auteur'] === 0) {
         return false;
     }
 

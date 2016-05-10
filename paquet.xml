@@ -39,6 +39,7 @@
 		<onglet nom="modauteur" titre="modauteur:modauteur_titre" parent="configuration" icone="images/modauteur-24.png" />
 	-->
 
+	<necessite nom="saisies" compatibilite="[2.0.3;]" />
 
 	<pipeline nom="autoriser" inclure="modauteur_autorisations.php" /> 
 

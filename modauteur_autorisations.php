@@ -23,14 +23,32 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 function modauteur_autoriser(){}
 
 
-/* Exemple
-function autoriser_modauteur_configurer_dist($faire, $type, $id, $qui, $opt) {
-	// type est un objet (la plupart du temps) ou une chose.
-	// autoriser('configurer', '_modauteur') => $type = 'modauteur'
-	// au choix :
-	return autoriser('webmestre', $type, $id, $qui, $opt); // seulement les webmestres
-	return autoriser('configurer', '', $id, $qui, $opt); // seulement les administrateurs complets
-	return $qui['statut'] == '0minirezo'; // seulement les administrateurs (même les restreints)
-	// ...
+/**
+ * Surcharge de la fonction d'autorisation des auteurs
+ * Cela permet à un auteur de modifier son profile
+ *
+ * @param string $faire
+ * @param string $type
+ * @param int $id
+ * @param mixed $qui
+ * @param mixed $opt
+ * @access public
+ * @return bool
+ */
+function autoriser_auteur_modifier($faire, $type, $id, $qui, $opt) {
+
+    include_spip('inc/session');
+
+    // Il faut être connecté
+	if ($qui['id_auteur'] !== 0) {
+        return false;
+    }
+
+    // Si l'id_auteur est égale à celui de la session, on autorise
+    if ($id == session_get('id_auteur')) {
+        return true;
+    }
+
+	// Sinon, appeler l'autorisation de SPIP
+    return autoriser_auteur_modifier_dist($faire, $type, $id, $qui, $opt);
 }
-*/

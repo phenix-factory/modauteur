@@ -40,6 +40,8 @@
 	-->
 
 	<necessite nom="saisies" compatibilite="[2.0.3;]" />
+	<necessite nom="spip_bonux" compatibilite="[3.2.0;]" />
+	<utilise nom="cextras" compatibilite="[3.7.1;]" />
 
 	<pipeline nom="autoriser" inclure="modauteur_autorisations.php" /> 
 

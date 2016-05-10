@@ -1,0 +1,46 @@
+<paquet
+	prefix="modauteur"
+	categorie="auteur"
+	version="1.0.0"
+	etat="dev"
+	compatibilite="[3.1.1;3.1.*]"
+	logo="prive/themes/spip/images/modauteur-64.png"
+	documentation=""
+>
+	<!--
+		Paquet généré le 2016-05-10 16:23:10
+		(Vous pouvez bien entendu supprimer ces commentaires) 
+	-->
+
+	<nom>Modifier auteur (publique)</nom>
+	
+
+	<!-- cette balise peut être présente plusieurs fois s'il y a plusieurs auteurs --> 
+	<auteur lien='http://p.henix.be'>Phenix</auteur>
+
+	<licence>GNU/GPL</licence>
+
+	<!--
+		Exemple de commandes
+		* dependances
+		<necessite nom="saisies" compatibilite="[1.21.0;]" />
+		<utilise nom="saisies" compatibilite="[1.21.0;]" />
+		<lib nom="simplehtmldom" lien="http://chemin_vers_archive.zip" />
+		* pipelines
+		<pipeline nom="autoriser" inclure="modauteur_autorisations.php" />
+		<pipeline nom="insert_head" inclure="modauteur_pipelines.php" />
+		* declarer un pipeline 
+		<pipeline nom="mon_pipeline" action="" />
+		* parents de menus de SPIP :
+				menu_accueil (à éviter), menu_edition, menu_publication,
+				menu_activite, menu_squelette, menu_administration, menu_configuration 
+		<menu nom="modauteur" titre="modauteur:modauteur_titre" parent="menu_edition"  icone="images/modauteur-16.png" />
+		* parents d'onglets... configuration, plugins, statistiques, ... 
+		<onglet nom="modauteur" titre="modauteur:modauteur_titre" parent="configuration" icone="images/modauteur-24.png" />
+	-->
+
+
+	<pipeline nom="autoriser" inclure="modauteur_autorisations.php" /> 
+
+
+</paquet>

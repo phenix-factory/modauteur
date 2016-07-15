@@ -88,6 +88,7 @@ function formulaires_modifier_compte_charger_dist() {
 
     $id_auteur = session_get('id_auteur');
 
+	// Ne pas charger le formulaire si on a pas le droit de le modifier.
 	if (!autoriser('modifier', 'auteur', intval($id_auteur))) {
         return false;
 	}
@@ -112,6 +113,8 @@ function formulaires_modifier_compte_traiter_dist() {
 
     // Pas de redirection
     $res['redirect'] = '';
+
+	// On peu éditer le profile
     $res['editable'] = true;
 
     // Donnée de retour.

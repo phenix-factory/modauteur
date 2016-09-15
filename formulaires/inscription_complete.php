@@ -6,6 +6,10 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 function formulaires_inscription_complete_saisies_dist() {
 
+    // Charger les saisies du formulaire de modification d'auteur
+    $saisie_compte = charger_fonction('saisies', 'formulaires/modifier_compte');
+    $saisies = $saisie_compte();
+
     return $saisies;
 }
 

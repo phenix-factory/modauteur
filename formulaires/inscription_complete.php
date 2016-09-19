@@ -33,7 +33,7 @@ function formulaires_inscription_complete_verifier_dist($statut = '6forum') {
 
 	// Charger la fonction de vérification du formulaire d'inscription
 	$verifications = charger_fonction('verifier', 'formulaires/inscription');
-	$erreurs = $verifications();
+	$erreurs = $verifications($statut);
 
 	return $erreurs;
 }

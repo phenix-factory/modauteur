@@ -38,13 +38,20 @@ function formulaires_inscription_complete_verifier_dist($statut = '6forum') {
 	return $erreurs;
 }
 
-function formulaires_inscription_complete_traiter_dist() {
-    //Traitement du formulaire.
+function formulaires_inscription_complete_traiter_dist($statut = '6forum') {
+	//Traitement du formulaire.
+	$traitement = charger_fonction('traiter', 'formulaires/inscription');
+	$res = $traitement($statut);
 
-    // Donnée de retour.
-    return array(
-        'editable' => true,
-        'message_ok' => '',
-        'redirect' => ''
-    );
+	// On exécute le pipeline formulaire traiter du formulaire d'inscription
+	$res = pipeline(
+		'formulaire_traiter',
+		array(
+			'args' => array('form' => 'inscription', 'args' => array()),
+			'data' => $res
+		)
+	);
+
+	// Donnée de retour.
+	return $res;
 }

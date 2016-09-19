@@ -4,13 +4,13 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-function formulaires_inscription_complete_saisies_dist() {
+function formulaires_inscription_complete_saisies_dist($statut = '6forum') {
 
-    // Charger les saisies du formulaire de modification d'auteur
-    $saisie_compte = charger_fonction('saisies', 'formulaires/modifier_compte');
-    $saisies = $saisie_compte();
+	// Charger les saisies du formulaire de modification d'auteur
+	$saisie_compte = charger_fonction('saisies', 'formulaires/modifier_compte');
+	$saisies = $saisie_compte();
 
-    return $saisies;
+	return $saisies;
 }
 
 function formulaires_inscription_complete_charger_dist() {

@@ -10,6 +10,12 @@ function formulaires_inscription_complete_saisies_dist($statut = '6forum') {
 	$saisie_compte = charger_fonction('saisies', 'formulaires/modifier_compte');
 	$saisies = $saisie_compte();
 
+	// Quelques remplacement pour être conforme avec les fonctions du formulaire
+	// d'inscription
+	include_spip('inc/saisies');
+	$saisies = saisies_transformer_noms($saisies, '#nom#', 'nom_inscription');
+	$saisies = saisies_transformer_noms($saisies, '#email#', 'mail_inscription');
+
 	return $saisies;
 }
 
@@ -24,12 +30,6 @@ function formulaires_inscription_complete_saisies_dist($statut = '6forum') {
  */
 function formulaires_inscription_complete_verifier_dist($statut = '6forum') {
 	$erreurs = array();
-
-	// On va créer quelques correspondance :
-	// Par défaut le formulaire d'inscription attend des variables "nom_inscription"
-	// et "mail inscription"
-	set_request('nom_inscription', _request('nom'));
-	set_request('mail_inscription', _request('mail_inscription'));
 
 	// Charger la fonction de vérification du formulaire d'inscription
 	$verifications = charger_fonction('verifier', 'formulaires/inscription');

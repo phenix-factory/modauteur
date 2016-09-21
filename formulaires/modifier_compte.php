@@ -8,7 +8,7 @@ include_spip('inc/editer');
 include_spip('formulaires/editer_auteur');
 include_spip('inc/session');
 
-function formulaires_modifier_compte_saisies_dist() {
+function formulaires_modifier_compte_saisies_dist($id_auteur = null) {
 
 	// Le formulaire de base sans les saisies
     $saisies = array(
@@ -84,9 +84,11 @@ function formulaires_modifier_compte_saisies_dist() {
 }
 
 
-function formulaires_modifier_compte_charger_dist() {
+function formulaires_modifier_compte_charger_dist($id_auteur = null) {
 
-    $id_auteur = session_get('id_auteur');
+	if (!is_null($id_auteur)) {
+		$id_auteur = session_get('id_auteur');
+	}
 
 	// Ne pas charger le formulaire si on a pas le droit de le modifier.
 	if (!autoriser('modifier', 'auteur', intval($id_auteur))) {
@@ -101,10 +103,12 @@ function formulaires_modifier_compte_charger_dist() {
     return $valeurs;
 }
 
-function formulaires_modifier_compte_traiter_dist() {
+function formulaires_modifier_compte_traiter_dist($id_auteur = null) {
 
     // on récupère l'id_auteur de la session
-    $id_auteur = session_get('id_auteur');
+	if (is_null($id_auteur)) {
+		$id_auteur = session_get('id_auteur');
+	}
 
     // On va charger la fonction du formulaire editer_auteur
     // Le but de la fonction étant le meme

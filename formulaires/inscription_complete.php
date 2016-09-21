@@ -16,6 +16,9 @@ function formulaires_inscription_complete_saisies_dist($statut = '6forum') {
 	$saisies = saisies_transformer_noms($saisies, '#^nom$#', 'nom_inscription');
 	$saisies = saisies_transformer_noms($saisies, '#^email$#', 'mail_inscription');
 
+	// On ne veux surtout pas créer de password
+	$saisies = saisies_supprimer($saisies, 'danger_zone');
+
 	return $saisies;
 }
 
@@ -34,6 +37,10 @@ function formulaires_inscription_complete_verifier_dist($statut = '6forum') {
 	// Charger la fonction de vérification du formulaire d'inscription
 	$verifications = charger_fonction('verifier', 'formulaires/inscription');
 	$erreurs = $verifications($statut);
+
+	// En cas de petit malin
+	set_request('new_pass', null);
+	set_request('new_pass2', null);
 
 	return $erreurs;
 }

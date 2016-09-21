@@ -59,7 +59,7 @@ function formulaires_inscription_complete_traiter_dist($statut = '6forum') {
 		)
 	);
 
-
+	// On veux que le mail ne change pas.
 	set_request('email', _request('mail_inscription'));
 
 	// Ajouter les informations supplémentaire

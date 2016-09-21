@@ -59,6 +59,16 @@ function formulaires_inscription_complete_traiter_dist($statut = '6forum') {
 		)
 	);
 
+
+	set_request('email', _request('mail_inscription'));
+
+	// Ajouter les informations supplémentaire
+	include_spip('inc/autoriser');
+	autoriser_exception('modifier', 'auteur', $res['id_auteur']);
+	$formulaire_editer_auteur = charger_fonction('traiter', 'formulaires/modifier_compte');
+	$formulaire_editer_auteur($res['id_auteur']);
+	autoriser_exception('modifier', 'auteur', $res['id_auteur'], false);
+
 	// Donnée de retour.
 	return $res;
 }

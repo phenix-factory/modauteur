@@ -13,8 +13,8 @@ function formulaires_inscription_complete_saisies_dist($statut = '6forum') {
 	// Quelques remplacement pour être conforme avec les fonctions du formulaire
 	// d'inscription
 	include_spip('inc/saisies');
-	$saisies = saisies_transformer_noms($saisies, '#nom#', 'nom_inscription');
-	$saisies = saisies_transformer_noms($saisies, '#email#', 'mail_inscription');
+	$saisies = saisies_transformer_noms($saisies, '#^nom$#', 'nom_inscription');
+	$saisies = saisies_transformer_noms($saisies, '#^email$#', 'mail_inscription');
 
 	return $saisies;
 }

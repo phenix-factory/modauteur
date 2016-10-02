@@ -86,7 +86,7 @@ function formulaires_modifier_compte_saisies_dist($id_auteur = null) {
 
 function formulaires_modifier_compte_charger_dist($id_auteur = null) {
 
-	if (!is_null($id_auteur)) {
+	if (is_null($id_auteur)) {
 		$id_auteur = session_get('id_auteur');
 	}
 

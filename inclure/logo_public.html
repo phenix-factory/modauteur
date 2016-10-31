@@ -1,0 +1,18 @@
+[(#SET{logo, #CHERCHER_LOGO{#ENV{objet}, #ENV{id_objet}}})]
+
+[(#GET{logo}|non)
+<div class="ajax">
+  #FORMULAIRE_UPLOADHTML5{#ENV{objet},#ENV{id_objet}, auto, logo_public, #ARRAY{logo, oui}}
+</div>]
+
+[<h3>Affiche actuelle</h3>
+<div class="row">
+  <div class="[(#COLONNES{#ARRAY{small,12, large, 3, medium, 3}}) ]large-centred small-centered medium-centered">
+	<a href="[(#GET{logo}|extraire_attribut{src})]" class="mediabox">
+	(#GET{logo}|image_reduire{450}|inserer_attribut{class, thumbnail})
+	</a>
+
+	[(#BOUTON_ACTION{Supprimer, #URL_ACTION_AUTEUR{supprimer_logo, #ENV{objet}-#ENV{id_objet}, #SELF}, button expanded alert ajax})]
+
+  </div>
+</div>]

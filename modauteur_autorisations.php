@@ -2,14 +2,16 @@
 /**
  * Définit les autorisations du plugin Modifier auteur (publique)
  *
- * @plugin     Modifier auteur (publique)
+ * @plugin	   Modifier auteur (publique)
  * @copyright  2016
- * @author     Phenix
- * @licence    GNU/GPL
- * @package    SPIP\Modauteur\Autorisations
+ * @author	   Phenix
+ * @licence	   GNU/GPL
+ * @package	   SPIP\Modauteur\Autorisations
  */
 
-if (!defined('_ECRIRE_INC_VERSION')) return;
+if (!defined('_ECRIRE_INC_VERSION')) {
+	return;
+}
 
 
 /*
@@ -20,7 +22,8 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 /**
  * Fonction d'appel pour le pipeline
  * @pipeline autoriser */
-function modauteur_autoriser(){}
+function modauteur_autoriser() {
+}
 
 
 /**
@@ -37,18 +40,18 @@ function modauteur_autoriser(){}
  */
 function autoriser_auteur_modifier($faire, $type, $id, $qui, $opt) {
 
-    include_spip('inc/session');
+	include_spip('inc/session');
 
-    // Il faut être connecté (et donc avec un id_auteur)
+	// Il faut être connecté (et donc avec un id_auteur)
 	if ($qui['id_auteur'] === 0) {
-        return false;
-    }
+		return false;
+	}
 
-    // Si l'id_auteur est égale à celui de la session, on autorise
-    if ($id == session_get('id_auteur')) {
-        return true;
-    }
+	// Si l'id_auteur est égale à celui de la session, on autorise
+	if ($id == session_get('id_auteur')) {
+		return true;
+	}
 
 	// Sinon, appeler l'autorisation de SPIP
-    return autoriser_auteur_modifier_dist($faire, $type, $id, $qui, $opt);
+	return autoriser_auteur_modifier_dist($faire, $type, $id, $qui, $opt);
 }

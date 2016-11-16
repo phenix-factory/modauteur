@@ -4,11 +4,11 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-function formulaires_inscription_complete_saisies_dist($statut = '6forum') {
+function formulaires_inscription_complete_saisies_dist($statut = '6forum', $cextra_position = 0) {
 
 	// Charger les saisies du formulaire de modification d'auteur
 	$saisie_compte = charger_fonction('saisies', 'formulaires/modifier_compte');
-	$saisies = $saisie_compte();
+	$saisies = $saisie_compte(null, $cextra_position);
 
 	// Quelques remplacement pour être conforme avec les fonctions du formulaire
 	// d'inscription
@@ -31,7 +31,7 @@ function formulaires_inscription_complete_saisies_dist($statut = '6forum') {
  *	 }
  *	 Pensez à utiliser _T('info_obligatoire'); pour les éléments obligatoire.
  */
-function formulaires_inscription_complete_verifier_dist($statut = '6forum') {
+function formulaires_inscription_complete_verifier_dist($statut = '6forum', $cextra_position = 0) {
 	$erreurs = array();
 
 	// Charger la fonction de vérification du formulaire d'inscription
@@ -45,7 +45,7 @@ function formulaires_inscription_complete_verifier_dist($statut = '6forum') {
 	return $erreurs;
 }
 
-function formulaires_inscription_complete_traiter_dist($statut = '6forum') {
+function formulaires_inscription_complete_traiter_dist($statut = '6forum', $cextra_position = 0) {
 	//Traitement du formulaire.
 	$traitement = charger_fonction('traiter', 'formulaires/inscription');
 	$res = $traitement($statut);

@@ -70,18 +70,6 @@ function formulaires_modifier_compte_saisies_dist($id_auteur = null, $cextra_pos
 		)
 	);
 
-	// Si l'id_auteur est new, on créer un visiteur
-	if ($id_auteur == 'new') {
-		$saisies[] = array(
-			'saisie' => 'input',
-			'options' => array(
-				'nom' => 'statut',
-				'type' => 'hidden',
-				'valeur' => '6forum'
-			)
-		);
-	}
-
 	// Support du plugin champs extras
 	$plugin = chercher_filtre('info_plugin');
 	if ($plugin('cextras', 'est_actif')) {

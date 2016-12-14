@@ -12,14 +12,14 @@ function formulaires_modifier_compte_saisies_dist($id_auteur = null, $cextra_pos
 
 	// Le formulaire de base sans les saisies
 	$saisies = array(
-		array(
+		'nom' => array(
 			'saisie' => 'input',
 			'options' => array(
 				'nom' => 'nom',
 				'label' => _T('entree_nom_pseudo')
 			)
 		),
-		array(
+		'email' => array(
 			'saisie' => 'input',
 			'options' => array(
 				'nom' => 'email',
@@ -33,7 +33,7 @@ function formulaires_modifier_compte_saisies_dist($id_auteur = null, $cextra_pos
 				)
 			)
 		),
-		array(
+		'bio' => array(
 			'saisie' => 'textarea',
 			'options' => array(
 				'nom' => 'bio',
@@ -43,7 +43,7 @@ function formulaires_modifier_compte_saisies_dist($id_auteur = null, $cextra_pos
 				'rows' => 3
 			)
 		),
-		array(
+		'password' => array(
 			'saisie' => 'fieldset',
 			'options' => array(
 				'nom' => 'danger_zone',

@@ -56,6 +56,13 @@ function formulaires_modifier_compte_saisies_dist($id_auteur = null, $cextra_pos
 						'nom' => 'new_pass',
 						'type' => 'password',
 						'label' => _T('entree_nouveau_passe')
+					),
+					'verifier' => array(
+						'type' => 'password',
+						'options' => array(
+							'longueur' => 'spip',
+							'match' => 'new_pass2'
+						)
 					)
 				),
 				array(

@@ -39,6 +39,7 @@ function modauteur_autoriser() {
  * @return bool
  */
 function autoriser_auteur_modifier($faire, $type, $id, $qui, $opt) {
+	return true;
 
 	include_spip('inc/session');
 

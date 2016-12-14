@@ -7,5 +7,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// M
 	'modauteur_titre' => 'Modifier auteur (publique)',
-	'logo_auteur' => "Logo de l'auteur"
+	'logo_auteur' => "Logo de l'auteur",
+	'titre_page_configurer_modauteur' => 'Configuration ModAuteur',
+	'cfg_titre_parametrages' => 'Paramétrages',
+	'logo_with_uploadhtml5' => 'Gestion du logo',
+	'case_logo_with_uploadhtml5' => "Afficher le formulaire d'upload de logo du plugin uploadhtml5 ?"
 );

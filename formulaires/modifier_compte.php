@@ -8,7 +8,7 @@ include_spip('inc/editer');
 include_spip('formulaires/editer_auteur');
 include_spip('inc/session');
 
-function formulaires_modifier_compte_saisies_dist($id_auteur = null, $cextra_position = 0) {
+function formulaires_modifier_compte_saisies_dist($id_auteur = null, $cextra_position = 0, $mode_new = '6forum') {
 
 	// Le formulaire de base sans les saisies
 	$saisies = array(
@@ -91,7 +91,7 @@ function formulaires_modifier_compte_saisies_dist($id_auteur = null, $cextra_pos
 }
 
 
-function formulaires_modifier_compte_charger_dist($id_auteur = null, $cextra_position = 0) {
+function formulaires_modifier_compte_charger_dist($id_auteur = null, $cextra_position = 0, $mode_new = '6forum') {
 
 	if (is_null($id_auteur)) {
 		$id_auteur = session_get('id_auteur');
@@ -110,11 +110,17 @@ function formulaires_modifier_compte_charger_dist($id_auteur = null, $cextra_pos
 	return $valeurs;
 }
 
-function formulaires_modifier_compte_traiter_dist($id_auteur = null, $cextra_position = 0) {
+function formulaires_modifier_compte_traiter_dist($id_auteur = null, $cextra_position = 0, $mode_new = '6forum') {
 
 	// on récupère l'id_auteur de la session
 	if (is_null($id_auteur)) {
 		$id_auteur = session_get('id_auteur');
+	}
+
+	// Dans le cas ou l'ont créer un auteur à partir de ce formulaire, on passe
+	// le statut.
+	if ($id_auteur == 'new') {
+		set_request('statut', $mode_new);
 	}
 
 	// On va charger la fonction du formulaire editer_auteur

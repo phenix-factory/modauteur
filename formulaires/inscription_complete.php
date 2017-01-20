@@ -27,6 +27,7 @@ function formulaires_inscription_complete_charger_dist($statut = '6forum', $cext
 
 	// Si la configuration des inscriptions du mode est désactivée, on le
 	// signale par une erreur et on ne laisse pas le formulaire s'afficher
+	include_spip('inc/autoriser');
 	if (!autoriser('inscrireauteur', $statut)) {
 		include_spip('inc/filtres_ecrire');
 		$charger['message_erreur'] = _T(

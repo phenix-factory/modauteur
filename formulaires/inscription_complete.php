@@ -23,20 +23,20 @@ function formulaires_inscription_complete_saisies_dist($statut = '6forum', $cext
 }
 
 function formulaires_inscription_complete_charger_dist($statut = '6forum', $cextra_position = 0) {
-    $charger = array();
+	$charger = array();
 
-    // Si la configuration des inscriptions du mode est désactivée, on le
-    // signale par une erreur et on ne laisse pas le formulaire s'afficher
-    if (!autoriser('inscrireauteur', $statut)) {
-        include_spip('inc/filtres_ecrire');
-        $charger['message_erreur'] = _T(
-            'modauteur:inscription_desactive',
-            array('statut' => traduire_statut_auteur($statut))
-        );
-        $charger['editable'] = false;
-    }
+	// Si la configuration des inscriptions du mode est désactivée, on le
+	// signale par une erreur et on ne laisse pas le formulaire s'afficher
+	if (!autoriser('inscrireauteur', $statut)) {
+		include_spip('inc/filtres_ecrire');
+		$charger['message_erreur'] = _T(
+			'modauteur:inscription_desactive',
+			array('statut' => traduire_statut_auteur($statut))
+		);
+		$charger['editable'] = false;
+	}
 
-    return $charger;
+	return $charger;
 }
 
 /**
